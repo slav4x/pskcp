@@ -1,0 +1,91 @@
+.header
+	position: relative
+	top: 20px
+	&-block
+		background: var(--color-orange)
+		color: var(--color-white)
+		border-radius: 20px
+		padding: 10px
+		@include flexbox
+		align-items: center
+		justify-content: space-between
+	&-logo
+		display: block
+		padding: 4px 20px
+		background: var(--color-orange-light)
+		border-radius: 10px
+	&-nav
+		max-width: 690px
+		@include flexbox
+		align-items: flex-start
+		gap: 4px 20px
+		li
+			min-width: 122px
+			padding: 10px 0
+			a
+				display: block
+				font-size: 14px
+				line-height: 1.1
+				letter-spacing: -0.03em
+				font-weight: 600
+				transition: var(--transition-ms)
+				&:hover
+					color: var(--color-yellow)
+	&-contact
+		@include flexbox
+		align-items: center
+		gap: 40px
+		padding-right: 10px
+	&-socials
+		@include flexbox
+		align-items: center
+		gap: 20px
+		li
+			a
+				display: block
+				padding: 6px
+				svg
+					path
+						transition: var(--transition-ms)
+				&:hover svg path
+					--color-orange-light: var(--color-yellow)
+	&-btns
+		@include flexbox
+		align-items: center
+		gap: 20px
+	&-call
+		@include flexbox
+		background: var(--color-yellow)
+		color: var(--color-black)
+		border-radius: 99px
+		height: 44px
+		transition: var(--transition-ms)
+		p
+			line-height: 1.1
+			letter-spacing: -0.03em
+			padding-left: 20px
+			padding-right: 10px
+			padding-top: 14px
+		&::after
+			content: ''
+			display: block
+			width: 44px
+			height: 44px
+			background: var(--color-white) url("data:image/svg+xml,%3Csvg width='20' height='18' viewBox='0 0 20 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.9826 12.8273C18.4856 12.5962 16.0606 11.4406 15.6233 11.2673C15.1662 11.1132 14.8481 11.0361 14.5102 11.4984C14.1723 11.9799 13.2381 13.0585 12.9598 13.3666C12.6815 13.6941 12.3834 13.7326 11.8865 13.4822C11.3895 13.2511 9.79938 12.731 7.93094 11.1132C6.46003 9.842 5.48606 8.28192 5.1879 7.80041C4.90962 7.31891 5.14815 7.06852 5.40655 6.81814C5.6252 6.60628 5.90348 6.25959 6.142 5.98995C6.38053 5.7203 6.47991 5.50844 6.63893 5.20028C6.79794 4.87285 6.71844 4.60321 6.59917 4.37208C6.47991 4.14096 5.48606 1.79121 5.08852 0.828192C4.69098 -0.0963011 4.27356 0.0192603 3.97541 0H3.02131C2.6834 0 2.1666 0.11556 1.70942 0.597067C1.27213 1.07857 0 2.23419 0 4.58395C0 6.9337 1.76906 9.20642 2.00758 9.51458C2.24611 9.84201 5.48606 14.6571 10.4156 16.7179C11.5883 17.2187 12.5026 17.5076 13.2182 17.7195C14.391 18.0854 15.4643 18.0276 16.319 17.9121C17.2731 17.7772 19.241 16.7564 19.6385 15.6393C20.0559 14.5223 20.0559 13.5785 19.9168 13.3666C19.7776 13.1548 19.4795 13.0585 18.9826 12.8273Z' fill='%231E1913'/%3E%3C/svg%3E%0A") no-repeat center
+			border-radius: 100%
+		&:hover
+			background: var(--color-blue)
+			color: var(--color-white)
+	&-login
+		background: var(--color-orange-light)
+		border-radius: 99px
+		height: 44px
+		transition: var(--transition-ms)
+		padding-top: 14px
+		line-height: 1.1
+		letter-spacing: -0.03em
+		width: 213px
+		text-align: center
+		&:hover
+			background: var(--color-yellow)
+			color: var(--color-black)
