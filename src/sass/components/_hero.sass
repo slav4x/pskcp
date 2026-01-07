@@ -1,0 +1,68 @@
+.hero
+	padding-top: 40px
+	padding-bottom: 80px
+	&-head
+		@include flexbox
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		gap: 20px
+		text-align: center
+	&-label
+		font-size: 20px
+		line-height: 1.2
+		letter-spacing: -0.03em
+		padding: 10px 16px
+		background: var(--color-white)
+		border-radius: 20px
+	&-title
+		max-width: 1400px
+		font-size: 90px
+		font-weight: 600
+		line-height: 0.9
+		letter-spacing: -0.03em
+	&-bottom
+		@include flexbox
+		align-items: flex-end
+		justify-content: space-between
+		margin-top: 360px
+	&-open
+		max-width: 450px
+		p
+			font-size: 20px
+			line-height: 1.2
+			letter-spacing: -0.03em
+			margin-bottom: 40px
+		.btn:not(:last-child)
+			margin-bottom: 20px
+	&-quote
+		background: var(--color-white)
+		max-width: 450px
+		padding: 20px
+		border-radius: 20px
+		p
+			font-size: 28px
+			font-weight: 500
+			line-height: 0.9
+			letter-spacing: -0.03em
+			margin-bottom: 24px
+			b
+				font-weight: 600
+		span
+			font-size: 24px
+			line-height: 0.9
+			display: block
+			letter-spacing: -0.03em
+		small
+			display: block
+			font-size: 18px
+			line-height: 1.2
+			letter-spacing: -0.03em
+			opacity: 0.4
+			margin-top: 5px
+	&-people
+		position: absolute
+		bottom: -164px
+		left: 50%
+		transform: translateX(-50%)
+		z-index: -1
