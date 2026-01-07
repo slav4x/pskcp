@@ -36,3 +36,28 @@ input, textarea
     padding: 0 40px
     position: relative
     z-index: 5
+
+.btn
+    max-width: 450px
+    width: 100%
+    display: block
+    padding: 14px 16px 10px
+    text-align: center
+    border-radius: 99px
+    box-shadow: 4px 4px 0px 0px #000
+    letter-spacing: -0.03em
+    line-height: 1.1
+    height: 44px
+    transition: var(--transition-ms)
+    &-orange
+        background: var(--color-orange)
+        color: var(--color-white)
+        &:hover
+            background: var(--color-yellow)
+            color: var(--color-black)
+    &-white
+        background: var(--color-white)
+        color: var(--color-black)
+        &:hover
+            background: var(--color-orange)
+            color: var(--color-white)
