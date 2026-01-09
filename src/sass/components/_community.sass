@@ -1,0 +1,54 @@
+.community
+	.section-head
+		max-width: 960px
+		margin: 0 auto
+	&-grid
+		@include flexbox
+		align-items: center
+		justify-content: space-between
+	&-bubble
+		width: 445px
+		height: 445px
+		border-radius: 100%
+		background: var(--color-yellow-light)
+		@include flexbox
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		text-align: center
+		gap: 10px
+		b
+			font-size: 120px
+			font-weight: 600
+			line-height: 0.9
+			letter-spacing: -0.03em
+			color: var(--color-orange)
+		p
+			padding: 0 28px
+			font-weight: 400
+			line-height: 1.2
+			letter-spacing: -0.03em
+	&-card
+		width: 445px
+		&__photo
+			width: 100%
+			aspect-ratio: 1
+			object-fit: cover
+			object-position: center
+			border-radius: 20px
+			margin-bottom: 12px
+		&__name
+			font-size: 28px
+			line-height: 0.9
+			letter-spacing: -0.03em
+			margin-bottom: 6px
+		&__spec
+			line-height: 1.2
+			opacity: 0.4
+			letter-spacing: -0.03em
+		&__text
+			line-height: 1.2
+			font-weight: 500
+			font-size: 20px
+			p
+				margin-top: 12px
