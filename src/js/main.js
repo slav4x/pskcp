@@ -26,4 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     gap: 20,
     speed: 600,
   }).mount();
+
+  const newsCarousel = new Splide('.news-carousel', {
+    perPage: 3,
+    perMove: 1,
+    pagination: false,
+    gap: 20,
+    speed: 600,
+  }).mount();
 });

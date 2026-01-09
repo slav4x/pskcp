@@ -199,11 +199,27 @@
 	</div>
 </section>
 
-<section class="section section-bottom-lg">
+<section class="section section-bottom-lg news">
 	<div class="container">
 		<div class="section-head">
 			<span class="section-head__label">новости</span>
 			<h2 class="section-head__title">Последние новости нашего сообщества</h2>
+		</div>
+		<div class="news-carousel splide">
+			<div class="splide__arrows">
+				<button class="splide__arrow splide__arrow--prev"></button>
+				<button class="splide__arrow splide__arrow--next"></button>
+			</div>
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/news-item.html' %}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

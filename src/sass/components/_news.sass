@@ -1,0 +1,61 @@
+.news
+	.section-head
+		max-width: 600px
+		margin: 0 auto
+	&-carousel
+		margin-top: 25px
+	&-item
+		background: var(--color-yellow-light)
+		border-radius: 20px
+		overflow: hidden
+		position: relative
+		transition: var(--transition-ms)
+		&:hover
+			background: var(--color-yellow)
+		&__image
+			width: 100%
+			height: 255px
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+		&__content
+			padding: 20px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+		&__date
+			margin-bottom: 20px
+			line-height: 1.2
+			font-size: 16px
+			padding: 0 8px
+			border-radius: 99px
+			color: var(--color-white)
+			background: var(--color-orange)
+			letter-spacing: -0.03em
+		&__title
+			font-size: 24px
+			line-height: 0.9
+			letter-spacing: -0.03em
+			margin-bottom: 15px
+		&__text
+			margin-bottom: 35px
+			line-height: 1.2
+			font-weight: 400
+			letter-spacing: -0.03em
+		&__link
+			border-bottom: 1px solid var(--color-black)
+			transition: var(--transition-ms)
+			opacity: 0.4
+			margin: 0 auto
+			&:hover
+				opacity: 1
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				z-index: 10
