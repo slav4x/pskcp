@@ -149,12 +149,18 @@
 	</div>
 </section>
 
-<section class="section section-radius section-top-sm">
+<section class="section section-radius section-top-sm events">
 	<div class="container">
 		<div class="section-head">
 			<span class="section-head__label">мероприятия</span>
 			<h2 class="section-head__title">Ближайшие мероприятия нашего сообщества</h2>
 		</div>
+		<div class="events-list">
+			{% include 'components/events-item.html' %}
+			{% include 'components/events-item.html' %}
+			{% include 'components/events-item.html' %}
+		</div>
+		<a href="#" class="btn btn-orange">Смотреть все мероприятия</a>
 	</div>
 </section>
 
