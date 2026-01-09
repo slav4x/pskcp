@@ -1,0 +1,33 @@
+.activity
+	.section-head
+		max-width: 860px
+		margin: 0 auto
+		&__description
+			max-width: 460px
+	&-carousel
+		.splide__slide
+			img
+				border-radius: 20px
+				width: 100%
+				aspect-ratio: 1
+				object-fit: cover
+				object-position: center
+			&:nth-child(2n)
+				img
+					border-radius: 100%
+		.splide__pagination
+			position: relative
+			padding: 0
+			bottom: 0
+			margin-top: 20px
+			&__page
+				opacity: .2
+				background: var(--color-black)
+				transform: none
+				width: 16px
+				height: 16px
+				margin: 0 4px
+				&.is-active
+					opacity: 1
+	.btn-white
+		margin: 40px auto 0
