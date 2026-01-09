@@ -164,12 +164,28 @@
 	</div>
 </section>
 
-<section class="section">
+<section class="section specialists">
 	<div class="container">
 		<div class="section-head">
 			<span class="section-head__label">наши специалисты</span>
 			<h2 class="section-head__title">Уже более 89 специалистов работают, делятся опытом  и обучаются в нашем сообществе</h2>
 			<p class="section-head__description">Действительные, наблюдательные и ассоциированные участники</p>
+		</div>
+		<div class="specialists-carousel splide">
+			<div class="splide__arrows">
+				<button class="splide__arrow splide__arrow--prev"></button>
+				<button class="splide__arrow splide__arrow--next"></button>
+			</div>
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+					<div class="splide__slide">{% include 'components/specialists-item.html' %}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

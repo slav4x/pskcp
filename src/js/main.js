@@ -11,10 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const activityCarousel = new Splide('.activity-carousel', {
     perPage: 3,
+    perMove: 1,
     arrows: false,
     gap: 20,
     speed: 600,
     rewind: false,
     drag: false,
+  }).mount();
+
+  const specialistsCarousel = new Splide('.specialists-carousel', {
+    perPage: 4,
+    perMove: 1,
+    pagination: false,
+    gap: 20,
+    speed: 600,
   }).mount();
 });

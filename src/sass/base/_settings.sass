@@ -112,3 +112,44 @@ input, textarea
             font-size: 28px
             line-height: 0.9
             letter-spacing: -0.03em
+
+.splide
+    &__arrows
+        position: absolute
+        top: 0
+        right: 0
+        @include flexbox
+        align-items: center
+        gap: 12px
+        z-index: 10
+    &__arrow
+        position: relative
+        top: -88px
+        left: 0
+        right: 0
+        transform: none
+        width: 48px
+        height: 48px
+        background: var(--color-orange) url("data:image/svg+xml,%3Csvg width='14' height='26' viewBox='0 0 14 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.70711 0.292893C1.31658 -0.0976311 0.683568 -0.0976311 0.293044 0.292893C-0.0974802 0.683418 -0.0974802 1.31643 0.293044 1.70696L11.586 12.9999L0.293044 24.2929C-0.0974802 24.6834 -0.0974802 25.3164 0.293044 25.707C0.683568 26.0975 1.31658 26.0975 1.70711 25.707L13.7071 13.707C14.0976 13.3164 14.0976 12.6834 13.7071 12.2929L1.70711 0.292893Z' fill='%23F1EFEB'/%3E%3C/svg%3E%0A") no-repeat center
+        opacity: 1
+        transition: var(--transition-ms)
+        &:disabled
+            opacity: 0.4
+        svg
+            display: none
+        &--prev
+            transform: rotate(180deg)
+    &__pagination
+        position: relative
+        padding: 0
+        bottom: 0
+        margin-top: 20px
+        &__page
+            opacity: .2
+            background: var(--color-black)
+            transform: none
+            width: 16px
+            height: 16px
+            margin: 0 4px
+            &.is-active
+                opacity: 1
