@@ -253,3 +253,21 @@ input, textarea
         line-height: 0.9
         letter-spacing: -0.03em
         margin-top: 20px
+
+.categories
+    @include flexbox
+    align-items: flex-start
+    justify-content: center
+    gap: 20px
+    li
+        cursor: pointer
+        background: var(--color-yellow-light)
+        line-height: 14px
+        letter-spacing: -0.03em
+        color: var(--color-orange)
+        padding: 16px 20px 14px
+        border-radius: 99px
+        transition: var(--transition-ms)
+        &:hover, &.active
+            background: var(--color-orange)
+            color: var(--color-white)

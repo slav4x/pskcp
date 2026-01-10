@@ -1,0 +1,40 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Мероприятия' %}
+
+{% block content %}
+
+<section class="top">
+	<div class="container">
+		<ul class="top-breadcrumbs">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Мероприятия</a></li>
+		</ul>
+		<div class="top-content">
+			<h2 class="top-title">Мероприятия ПСКП</h2>
+			<p class="top-description">Выберите, какие мероприятия вас интересуют</p>
+		</div>
+	</div>
+</section>
+
+<section class="section section-radius section-top-sm section-bottom-lg">
+	<div class="container">
+		<ul class="categories">
+			<li class="active">Все мероприятия</li>
+			<li>Для специалистов</li>
+			<li>Для клиентов</li>
+		</ul>
+		<div class="events-grid">
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+			{% include 'components/events-item-card.html' %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}
