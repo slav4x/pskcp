@@ -215,3 +215,41 @@ input, textarea
             transition: var(--transition-ms)
             &:hover
                 color: var(--color-blue)
+
+.top
+    padding: 24px 0 100px
+    &-breadcrumbs
+        margin-bottom: 40px
+        display: inline-block
+        line-height: 1.1
+        letter-spacing: -0.03em
+        padding: 6px 0
+        li
+            display: inline
+            opacity: 0.4
+            a
+                display: inline
+            &::after
+                content: '>'
+                display: inline-block
+                margin: 0 10px
+            &:last-child
+                opacity: 1
+                &::after
+                    display: none
+    &-content
+        @include flexbox
+        flex-direction: column
+        align-items: center
+    &-title
+        text-align: center
+        font-size: 120px
+        font-weight: 600
+        line-height: 0.9
+        letter-spacing: -0.03em
+    &-description
+        text-align: center
+        font-size: 28px
+        line-height: 0.9
+        letter-spacing: -0.03em
+        margin-top: 20px
