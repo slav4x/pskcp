@@ -1,0 +1,63 @@
+.waiting
+	.section-head
+		max-width: 1040px
+		margin: 0 auto
+	&-content
+		position: relative
+	&-form
+		margin: 180px auto 0
+		max-width: 600px
+		background: var(--color-yellow-light)
+		border-radius: 20px
+		padding: 20px
+		position: relative
+		z-index: 5
+		&__title
+			font-size: 28px
+			line-height: 0.9
+			letter-spacing: -0.03em
+			margin-bottom: 35px
+		.btn
+			max-width: 100%
+			margin-top: 40px
+		.select
+			margin-bottom: 24px
+		.checkbox
+			margin-top: 24px
+	&-list
+		li
+			position: absolute
+			width: 660px
+			padding: 20px
+			border-radius: 20px
+			@include flexbox
+			align-items: center
+			gap: 12px
+			background: var(--color-orange)
+			color: var(--color-white)
+			transform: rotate(-13deg)
+			img
+				width: 65px
+				height: 65px
+			p
+				max-width: 330px
+				font-size: 28px
+				line-height: 0.9
+				letter-spacing: -0.03em
+			&:nth-child(2),
+			&:nth-child(3)
+				background: var(--color-yellow)
+				color: var(--color-black)
+				transform: rotate(13deg)
+			&:nth-child(1)
+				left: 210px
+				top: -105px
+			&:nth-child(2)
+				right: 210px
+				top: -105px
+			&:nth-child(3)
+				left: 0
+				bottom: 115px
+			&:nth-child(4)
+				right: 0
+				bottom: 115px
