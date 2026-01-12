@@ -169,3 +169,191 @@
 		.events-item__date::before,
 		.events-item__time::before
 			background-color: var(--color-white)
+	&-similar
+		.section-head
+			max-width: 840px
+			margin: 0 auto
+	&-details
+		&__list
+			border-top: 1px solid var(--color-grey)
+			max-width: 1220px
+			margin: 0 auto
+			counter-reset: eventsDetailsItems
+		&__item
+			width: 100%
+			@include flexbox
+			align-items: flex-start
+			border-bottom: 1px solid var(--color-grey)
+			padding: 20px 0
+			transition: var(--transition-ms)
+			counter-increment: eventsDetailsItems
+			&::before
+				content: counter(eventsDetailsItems, decimal-leading-zero)
+				display: block
+				line-height: 1.2
+				letter-spacing: -0.03em
+			&-content
+				max-width: 445px
+				width: 100%
+				margin-left: 175px
+			&-title
+				font-size: 28px
+				line-height: 0.9
+				letter-spacing: -0.03em
+			&-text
+				margin-top: 10px
+				line-height: 1.2
+				font-weight: 400
+				letter-spacing: -0.03em
+				opacity: 0.4
+				transition: var(--transition-ms)
+			&-image
+				width: 100px
+				height: 100px
+				border-radius: 12px
+				overflow: hidden
+				margin-left: auto
+				transition: var(--transition-ms)
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+					object-position: center
+			&:hover
+				.events-details__item-image
+					width: 290px
+					height: 180px
+					border-radius: 20px
+				.events-details__item-text
+					opacity: 1
+	&-card
+		@include flexbox
+		max-width: 1530px
+		margin: 0 auto
+		&__side
+			background: var(--color-white)
+			width: 445px
+			padding: 20px
+			padding-right: 4px
+			border-top-left-radius: 20px
+			border-bottom-left-radius: 20px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			.btn
+				width: 100%
+				margin-top: auto
+		&__info
+			margin-top: 28px
+			li
+				@include flexbox
+				align-items: flex-start
+				gap: 4px
+				margin-bottom: 8px
+				svg
+					display: block
+				p
+					line-height: 1.2
+					letter-spacing: -0.03em
+					padding-top: 3px
+				&:last-child
+					margin-bottom: 0
+		&__main
+			flex: 1
+			background: var(--color-white)
+			padding: 20px
+			border-top-right-radius: 20px
+			border-bottom-right-radius: 20px
+			@include flexbox
+			align-items: flex-start
+			gap: 10px
+		&__content
+			flex: 1
+		&__title
+			font-size: 60px
+			font-weight: 600
+			line-height: 0.9
+			letter-spacing: -0.03em
+		&__tags
+			margin-top: 16px
+			@include flexbox
+			gap: 12px
+			li
+				padding: 12px 20px 10px
+				line-height: 22px
+				letter-spacing: -0.03em
+				color: var(--color-white)
+				background: var(--color-orange)
+				border-radius: 99px
+				&.blue
+					background: var(--color-blue)
+		&__description
+			margin-top: 40px
+			font-size: 28px
+			line-height: 0.9
+			letter-spacing: -0.03em
+		&__image
+			width: 434px
+			min-height: 434px
+			height: 100%
+			position: relative
+			img
+				position: absolute
+				width: 100%
+				height: 100%
+				object-fit: cover
+				object-position: center
+				border-radius: 12px
+		&__separator
+			width: 60px
+			@include flexbox
+			flex-direction: column
+			align-items: flex-start
+			&::before,
+			&::after
+				content: ''
+				display: block
+				width: 60px
+				height: 30px
+				background: url(../img/events-card-separator.png) no-repeat center / cover
+			&::after
+				transform: rotate(180deg)
+			span
+				display: block
+				flex: 1
+				width: 60px
+				background: var(--color-white)
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					bottom: 0
+					top: 0
+					border-right: 2px dashed var(--color-black)
+					width: 31px
+		&__author
+			@include flexbox
+			align-items: center
+			gap: 20px
+			&-photo
+				width: 120px
+				height: 120px
+				object-fit: cover
+				object-position: center
+				border-radius: 12px
+			&-info
+				flex: 1
+			&-title
+				font-size: 28px
+				line-height: 0.9
+				letter-spacing: -0.03em
+				margin-bottom: 15px
+			&-name
+				font-size: 24px
+				line-height: 0.9
+				letter-spacing: -0.03em
+			&-spec
+				margin-top: 6px
+				line-height: 1.2
+				letter-spacing: -0.03em
+				opacity: 0.4

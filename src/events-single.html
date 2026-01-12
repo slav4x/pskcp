@@ -1,0 +1,129 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Страница мероприятия' %}
+
+{% block content %}
+
+<section class="top">
+	<div class="container">
+		<ul class="top-breadcrumbs">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Мероприятия</a></li>
+			<li><a href="#">Обучающий курс по фокусингу Для специалистов</a></li>
+		</ul>
+		<div class="events-card">
+			<div class="events-card__side">
+				<div class="events-card__author">
+					<img src="img/specialists-item.jpg" alt="" loading="lazy" class="events-card__author-photo">
+					<div class="events-card__author-info">
+						<div class="events-card__author-title">Ведущий:</div>
+						<div class="events-card__author-name">Кутукова С. А.</div>
+						<div class="events-card__author-spec">Психотерапевт, тренер</div>
+					</div>
+				</div>
+				<ul class="events-card__info">
+					<li>
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="12" fill="#F1EFEB"/>
+							<path d="M8.88889 5V7.1M15.1111 5V7.1M5.38889 9.96289H18.6111M14.8737 13.1901H14.8806M14.8737 15.2901H14.8806M11.9965 13.1901H12.0035M11.9965 15.2901H12.0035M9.1178 13.1901H9.12478M9.1178 15.2901H9.12478M19 9.55V15.5C19 17.6 17.8333 19 15.1111 19H8.88889C6.16667 19 5 17.6 5 15.5V9.55C5 7.45 6.16667 6.05 8.88889 6.05H15.1111C17.8333 6.05 19 7.45 19 9.55Z" stroke="#1E1913" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<p>20 ноября 2025</p>
+					</li>
+					<li>
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="12" fill="#F1EFEB"/>
+							<path d="M14.597 14.2258L12.427 12.9308C12.049 12.7068 11.741 12.1678 11.741 11.7268V8.85684M19 12C19 15.864 15.864 19 12 19C8.136 19 5 15.864 5 12C5 8.136 8.136 5 12 5C15.864 5 19 8.136 19 12Z" stroke="#1E1913" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<p>19:00</p>
+					</li>
+					<li>
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="12" fill="#F1EFEB"/>
+							<path d="M12.448 18.8598C12.3174 18.951 12.1607 19 12 19C11.8393 19 11.6826 18.951 11.552 18.8598C7.68867 16.1827 3.58855 10.6761 7.73348 6.69709C8.87138 5.60887 10.4038 4.99932 12 5C13.6 5 15.1353 5.61055 16.2665 6.69631C20.4114 10.6754 16.3113 16.1812 12.448 18.8598Z" stroke="#1E1913" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M12 11.9999C12.4243 11.9999 12.8313 11.836 13.1314 11.5443C13.4315 11.2526 13.6 10.8569 13.6 10.4444C13.6 10.0318 13.4315 9.63616 13.1314 9.34444C12.8313 9.05272 12.4243 8.88883 12 8.88883C11.5756 8.88883 11.1686 9.05272 10.8686 9.34444C10.5685 9.63616 10.3999 10.0318 10.3999 10.4444C10.3999 10.8569 10.5685 11.2526 10.8686 11.5443C11.1686 11.836 11.5756 11.9999 12 11.9999Z" stroke="#1E1913" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						<p>г. Москва, ул Советская, д. 3</p>
+					</li>
+				</ul>
+				<a href="#" class="btn btn-orange">Записаться</a>
+			</div>
+			<div class="events-card__separator"><span></span></div>
+			<div class="events-card__main">
+				<div class="events-card__content">
+					<h2 class="events-card__title">Обучающий курс по фокусингу</h2>
+					<ul class="events-card__tags">
+						<li>семинар</li>
+						<li class="blue">для специалистов</li>
+					</ul>
+					<div class="events-card__description">Описание мероприятия, которое мы делаем редактируемым и его можно будет заполнять каждый раз под каждое мероприятие</div>
+				</div>
+				<div class="events-card__image"><img src="img/news-item.jpg" alt="" loading="lazy"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section-radius section-top-sm events-details">
+	<div class="container">
+		<div class="section-head">
+			<span class="section-head__label">подробнее</span>
+			<h2 class="section-head__title">На мероприятии вас ждёт:</h2>
+		</div>
+		<div class="events-details__list">
+			<div class="events-details__item">
+				<div class="events-details__item-image"><img src="img/news-item.jpg" alt="" loading="lazy"></div>
+				<div class="events-details__item-content">
+					<div class="events-details__item-title">Теория и практика в одном месте</div>
+					<div class="events-details__item-text">Не только послушаете и запишите, но и сразу «отработаете» полученные навыки</div>
+				</div>
+			</div>
+			<div class="events-details__item">
+				<div class="events-details__item-image"><img src="img/news-item.jpg" alt="" loading="lazy"></div>
+				<div class="events-details__item-content">
+					<div class="events-details__item-title">Теория и практика в одном месте</div>
+					<div class="events-details__item-text">Не только послушаете и запишите, но и сразу «отработаете» полученные навыки</div>
+				</div>
+			</div>
+			<div class="events-details__item">
+				<div class="events-details__item-image"><img src="img/news-item.jpg" alt="" loading="lazy"></div>
+				<div class="events-details__item-content">
+					<div class="events-details__item-title">Теория и практика в одном месте</div>
+					<div class="events-details__item-text">Не только послушаете и запишите, но и сразу «отработаете» полученные навыки</div>
+				</div>
+			</div>
+			<div class="events-details__item">
+				<div class="events-details__item-image"><img src="img/news-item.jpg" alt="" loading="lazy"></div>
+				<div class="events-details__item-content">
+					<div class="events-details__item-title">Теория и практика в одном месте</div>
+					<div class="events-details__item-text">Не только послушаете и запишите, но и сразу «отработаете» полученные навыки</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section-bottom-lg events-similar">
+	<div class="container">
+		<div class="section-head">
+			<span class="section-head__label">мероприятия</span>
+			<h2 class="section-head__title">Похожие мероприятия от нашего сообщества:</h2>
+		</div>
+		<div class="events-carousel splide">
+			<div class="splide__arrows">
+				<button class="splide__arrow splide__arrow--prev"></button>
+				<button class="splide__arrow splide__arrow--next"></button>
+			</div>
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+					<div class="splide__slide">{% include 'components/events-item-card.html' %}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

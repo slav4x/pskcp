@@ -21,29 +21,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.masked').forEach((item) => new IMask(item, maskOptions));
 
-  const activityCarousel = new Splide('.activity-carousel', {
-    perPage: 3,
-    perMove: 1,
-    arrows: false,
-    gap: 20,
-    speed: 600,
-    rewind: false,
-    drag: false,
-  }).mount();
+  const activityCarousel = document.querySelector('.activity-carousel');
+  if (activityCarousel) {
+    const splide = new Splide(activityCarousel, {
+      perPage: 3,
+      perMove: 1,
+      arrows: false,
+      gap: 20,
+      speed: 600,
+      rewind: false,
+      drag: false,
+    }).mount();
+  }
 
-  const specialistsCarousel = new Splide('.specialists-carousel', {
-    perPage: 4,
-    perMove: 1,
-    pagination: false,
-    gap: 20,
-    speed: 600,
-  }).mount();
+  const specialistsCarousel = document.querySelector('.specialists-carousel');
+  if (specialistsCarousel) {
+    const splide = new Splide(specialistsCarousel, {
+      perPage: 4,
+      perMove: 1,
+      pagination: false,
+      gap: 20,
+      speed: 600,
+    }).mount();
+  }
 
-  const newsCarousel = new Splide('.news-carousel', {
-    perPage: 3,
-    perMove: 1,
-    pagination: false,
-    gap: 20,
-    speed: 600,
-  }).mount();
+  const newsCarousel = document.querySelector('.news-carousel');
+  if (newsCarousel) {
+    const splide = new Splide(newsCarousel, {
+      perPage: 3,
+      perMove: 1,
+      pagination: false,
+      gap: 20,
+      speed: 600,
+    }).mount();
+  }
+
+  const eventsCarousel = document.querySelector('.events-carousel');
+  if (eventsCarousel) {
+    const splide = new Splide(eventsCarousel, {
+      perPage: 3,
+      perMove: 1,
+      pagination: false,
+      gap: 20,
+      speed: 600,
+    }).mount();
+  }
 });
