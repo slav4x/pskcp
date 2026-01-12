@@ -1,0 +1,41 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Материалы' %}
+
+{% block content %}
+
+<section class="top">
+	<div class="container">
+		<ul class="top-breadcrumbs">
+			<li><a href="#">Главная</a></li>
+			<li><a href="#">Материалы</a></li>
+		</ul>
+		<div class="top-content">
+			<h2 class="top-title">Материалы ПСКП</h2>
+			<p class="top-description">Выберите, какие материалы вас интересуют</p>
+		</div>
+	</div>
+</section>
+
+<section class="section section-radius section-top-sm section-bottom-lg">
+	<div class="container">
+		<ul class="categories">
+			<li class="active">Все материалы</li>
+			<li>Литература</li>
+			<li>Публикации</li>
+			<li>Статьи</li>
+		</ul>
+		<div class="materials-grid">
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+			{% include 'components/materials-item.html' %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}
