@@ -67,6 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }).mount();
   }
 
+  const specialistsArticlesCarousel = document.querySelector('.specialists-articles__carousel');
+  if (specialistsArticlesCarousel) {
+    const splide = new Splide(specialistsArticlesCarousel, {
+      perPage: 3,
+      perMove: 1,
+      pagination: false,
+      gap: 20,
+      speed: 600,
+    }).mount();
+  }
+
   const faqItems = document.querySelectorAll('.ikcpif-criteria__item');
   faqItems.forEach((item) => {
     const title = item.querySelector('.ikcpif-criteria__item-head');
