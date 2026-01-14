@@ -116,6 +116,10 @@ input, textarea
             font-size: 28px
             line-height: 0.9
             letter-spacing: -0.03em
+    &-full
+        height: calc(100vh - 120px)
+        & + .footer
+            background: none
 
 .splide
     &__arrows
@@ -278,3 +282,20 @@ input, textarea
         &:hover, &.active
             background: var(--color-orange)
             color: var(--color-white)
+
+.thanks
+    @include flexbox
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    &-title
+        text-align: center
+        font-size: 90px
+        font-weight: 600
+        line-height: 0.9
+        letter-spacing: -0.03em
+        span
+            color: var(--color-orange)
+            display: block
+    .btn
+        margin: 64px auto 0
