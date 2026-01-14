@@ -66,4 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
       speed: 600,
     }).mount();
   }
+
+  const faqItems = document.querySelectorAll('.ikcpif-criteria__item');
+  faqItems.forEach((item) => {
+    const title = item.querySelector('.ikcpif-criteria__item-head');
+    const content = item.querySelector('.ikcpif-criteria__item-wrapper');
+    const text = item.querySelector('.ikcpif-criteria__item-content');
+    title.addEventListener('click', () => {
+      title.classList.toggle('open');
+      content.style.height = title.classList.contains('open') ? `${text.scrollHeight}px` : null;
+    });
+  });
 });
