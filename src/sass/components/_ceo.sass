@@ -1,0 +1,31 @@
+.ceo
+	&-carousel
+		&__item
+			background: var(--color-yellow-light)
+			padding: 20px
+			border-radius: 20px
+			@include flexbox
+			align-items: flex-start
+			gap: 20px
+			&-photo
+				width: 240px
+				height: 280px
+				border-radius: 12px
+				object-fit: cover
+				object-position: center
+			&-content
+				flex: 1
+			&-name
+				font-size: 28px
+				line-height: 0.9
+				letter-spacing: -0.03em
+			&-list
+				margin-top: 32px
+				line-height: 1.2
+				letter-spacing: -0.03em
+				list-style: disc
+				padding-left: 17px
+				li
+					margin-bottom: 4px
+					&:last-child
+						margin-bottom: 0
