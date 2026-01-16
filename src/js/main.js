@@ -46,14 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   CAROUSELS.forEach(([selector, options]) => mountSplide(selector, options));
 
-  const faqItems = document.querySelectorAll('.ikcpif-criteria__item');
-  faqItems.forEach((item) => {
-    const title = item.querySelector('.ikcpif-criteria__item-head');
-    const content = item.querySelector('.ikcpif-criteria__item-wrapper');
-    const text = item.querySelector('.ikcpif-criteria__item-content');
-    title.addEventListener('click', () => {
-      title.classList.toggle('open');
-      content.style.height = title.classList.contains('open') ? `${text.scrollHeight}px` : null;
+  const ikcpifCriteriaItems = document.querySelectorAll('.ikcpif-criteria__item');
+  ikcpifCriteriaItems.forEach((item) => {
+    const head = item.querySelector('.ikcpif-criteria__item-head');
+    const wrapper = item.querySelector('.ikcpif-criteria__item-wrapper');
+    const content = item.querySelector('.ikcpif-criteria__item-content');
+    head.addEventListener('click', () => {
+      head.classList.toggle('open');
+      wrapper.style.height = head.classList.contains('open') ? `${content.scrollHeight}px` : null;
+    });
+  });
+
+  const membershipItems = document.querySelectorAll('.membership-item');
+  membershipItems.forEach((item) => {
+    const head = item.querySelector('.membership-item__head');
+    const wrapper = item.querySelector('.membership-item__wrapper');
+    const content = item.querySelector('.membership-item__content');
+    head.addEventListener('click', () => {
+      head.classList.toggle('open');
+      wrapper.style.height = head.classList.contains('open') ? `${content.scrollHeight}px` : null;
     });
   });
 });
