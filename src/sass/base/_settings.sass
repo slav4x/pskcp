@@ -2,12 +2,13 @@
 //     scroll-behavior: smooth
 
 body
-    font-family: 'LT Superior', sans-serif
+    font-family: 'LTSuperior', sans-serif
     font-weight: 600
     font-size: 18px
     background: var(--color-peach) url(../img/background.png) no-repeat top -294px center
     color: var(--color-black)
     min-width: 390px
+    -webkit-font-smoothing: antialiased
     &.white-bg
         background: var(--color-white)
 
@@ -42,8 +43,11 @@ input, textarea
 .btn
     max-width: 450px
     width: 100%
-    display: block
-    padding: 14px 16px 10px
+    @include flexbox
+    align-items: center
+    justify-content: center
+    // padding: 14px 16px 10px
+    padding: 2px 16px 0
     text-align: center
     border-radius: 99px
     box-shadow: 4px 4px 0px 0px #000
@@ -161,8 +165,11 @@ input, textarea
             width: 16px
             height: 16px
             margin: 0 4px
+            transition: var(--transition-ms)
             &.is-active
                 opacity: 1
+                transform: none
+                background: var(--color-black)
 
 .input
     width: 100%

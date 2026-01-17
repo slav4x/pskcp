@@ -28,11 +28,37 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const CAROUSELS = [
-    ['.activity-carousel', { ...BASE_SPLIDE, perPage: 3, arrows: false, rewind: false, drag: false }],
+    [
+      '.activity-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 3,
+        arrows: false,
+        rewind: false,
+        drag: false,
+        breakpoints: { 1260: { perPage: 2, gap: 12, drag: true }, 768: { perPage: 1 } },
+      },
+    ],
     ['.commission-carousel', { ...BASE_SPLIDE, perPage: 3, arrows: false, rewind: false, drag: false }],
     ['.history-carousel', { ...BASE_SPLIDE, perPage: 4, pagination: false, updateOnMove: true, focus: 'start', gap: undefined }],
-    ['.specialists-carousel', { ...BASE_SPLIDE, perPage: 4, pagination: false }],
-    ['.news-carousel', { ...BASE_SPLIDE, perPage: 3, pagination: false }],
+    [
+      '.specialists-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 4,
+        pagination: false,
+        breakpoints: { 1260: { perPage: 3, gap: 12, arrows: false, pagination: true }, 974: { perPage: 2 }, 768: { perPage: 1 } },
+      },
+    ],
+    [
+      '.news-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 3,
+        pagination: false,
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
+      },
+    ],
     ['.events-carousel', { ...BASE_SPLIDE, perPage: 3, pagination: false }],
     ['.specialists-articles__carousel', { ...BASE_SPLIDE, perPage: 3, pagination: false }],
     ['.ceo-carousel', { ...BASE_SPLIDE, perPage: 2, pagination: false }],
