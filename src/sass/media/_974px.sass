@@ -85,6 +85,94 @@
 				margin-top: auto
 		&-grid
 			grid-template-columns: repeat(2, 1fr)
+		&-card
+			max-width: 366px
+			flex-direction: column
+			align-items: flex-start
+			&__side
+				width: 100%
+				border-radius: 0
+				border-bottom-left-radius: 12px
+				border-bottom-right-radius: 12px
+				order: 2
+				padding: 20px
+				min-height: 340px
+			&__main
+				flex: initial
+				width: 100%
+				border-radius: 0
+				border-top-left-radius: 12px
+				border-top-right-radius: 12px
+				order: -1
+			&__title
+				font-size: 36px
+				text-align: center
+			&__tags
+				justify-content: center
+			&__description
+				font-size: 18px
+				margin-top: 24px
+				text-align: center
+			&__image
+				max-width: initial
+				width: 100%
+				flex: initial
+				min-height: 0
+				height: 120px
+				order: -1
+				margin-bottom: 12px
+			&__separator
+				width: 100%
+				flex-direction: row
+				&::before,
+				&::after
+					width: 51px
+					height: 25px
+					margin-top: 12px
+				&::before
+					transform: rotate(-90deg)
+					margin-left: -12px
+				&::after
+					transform: rotate(90deg)
+					margin-right: -12px
+				span
+					height: 50px
+					width: calc(100% - 52px)
+					flex: initial
+					margin: 0 -13px
+					&::before
+						width: 100%
+						border: 0
+						border-top: 2px dashed var(--color-black)
+						top: 24px
+						left: 0
+						right: 0
+						bottom: initial
+			&__author
+				gap: 12px
+				&-photo
+					width: 80px
+					height: 80px
+				&-title
+					font-size: 20px
+				&-name
+					font-size: 18px
+		&-details
+			&__item
+				&::before
+					display: none
+				&-content
+					max-width: 360px
+					margin-left: 200px
+				&-image
+					width: 80px
+					height: 80px
+					border-radius: 12px
+				&:hover
+					.events-details__item-image
+						width: 170px
+						height: 120px
+						border-radius: 12px
 
 	.specialists
 		.section-head

@@ -59,7 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
       },
     ],
-    ['.events-carousel', { ...BASE_SPLIDE, perPage: 3, pagination: false }],
+    [
+      '.events-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 3,
+        pagination: false,
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
+      },
+    ],
     ['.specialists-articles__carousel', { ...BASE_SPLIDE, perPage: 3, pagination: false }],
     ['.ceo-carousel', { ...BASE_SPLIDE, perPage: 2, pagination: false }],
   ];

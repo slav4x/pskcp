@@ -74,6 +74,48 @@
 		&-grid
 			grid-template-columns: repeat(3, 1fr)
 			gap: 12px
+		&-card
+			max-width: 1000px
+			&__side
+				width: 290px
+			&__title
+				font-size: 44px
+			&__tags
+				margin-top: 12px
+				gap: 8px
+				li
+					padding: 6px 20px 4px
+			&__description
+				font-size: 18px
+				margin-top: 24px
+			&__image
+				max-width: 270px
+				min-height: 270px
+			&__separator
+				width: 40px
+				&::before,
+				&::after
+					width: 40px
+					height: 20px
+				span
+					width: 40px
+					&::before
+						width: 21px
+			&__author
+				gap: 12px
+				&-photo
+					width: 80px
+					height: 80px
+				&-title
+					font-size: 20px
+				&-name
+					font-size: 18px
+		&-details
+			&__list
+				max-width: 100%
+			&__item
+				&-content
+					max-width: 490px
 
 	.specialists
 		.section-head
