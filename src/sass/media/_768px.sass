@@ -150,6 +150,13 @@
 				margin-bottom: 10px
 			&__list
 				margin-bottom: 30px
+		&-grid
+			grid-template-columns: repeat(1, 1fr)
+			gap: 12px
+			margin-top: 30px
+		&-search
+			max-width: 100%
+			margin-top: 30px
 
 	.waiting
 		padding-bottom: 0
@@ -265,3 +272,14 @@
 		&-logo
 			b
 				font-size: 44px
+
+	.categories
+		flex-wrap: nowrap
+		overflow: auto
+		white-space: nowrap
+		gap: 8px
+		justify-content: flex-start
+		padding: 0 8px
+		margin: 0 -8px
+		&::-webkit-scrollbar
+			display: none
