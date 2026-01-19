@@ -121,7 +121,9 @@
 		&__side
 			max-width: 445px
 			width: 100%
-			padding-top: 20px
+			padding: 20px 0
+			position: sticky
+			top: 0
 			h4
 				font-size: 28px
 				font-weight: 600
@@ -183,16 +185,22 @@
 		gap: 20px
 		&__photo
 			width: 445px
-			height: 475px
+			min-height: 475px
 			background: var(--color-white)
 			padding: 20px
 			border-radius: 20px
+			position: relative
 			img
-				width: 100%
-				height: 100%
+				width: calc(100% - 40px)
+				height: calc(100% - 40px)
 				object-fit: cover
 				object-position: center
 				border-radius: 12px
+				position: absolute
+				top: 20px
+				left: 20px
+				right: 20px
+				bottom: 20px
 		&__content
 			flex: 1
 			background: var(--color-white)
@@ -209,7 +217,8 @@
 			margin-top: 16px
 			@include flexbox
 			align-items: flex-start
-			gap: 20px
+			gap: 10px 20px
+			margin-bottom: 20px
 			li
 				line-height: 22px
 				padding: 12px 20px 10px
