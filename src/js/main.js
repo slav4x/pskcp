@@ -52,8 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: { 1260: { perPage: 2, gap: 12, drag: true }, 768: { perPage: 1 } },
       },
     ],
-    ['.commission-carousel', { ...BASE_SPLIDE, perPage: 3, arrows: false, rewind: false, drag: false }],
-    ['.history-carousel', { ...BASE_SPLIDE, perPage: 4, pagination: false, updateOnMove: true, focus: 'start', gap: undefined }],
+    [
+      '.commission-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 3,
+        arrows: false,
+        rewind: false,
+        drag: false,
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true, drag: true }, 768: { perPage: 1 } },
+      },
+    ],
+    [
+      '.history-carousel',
+      {
+        ...BASE_SPLIDE,
+        perPage: 4,
+        pagination: false,
+        updateOnMove: true,
+        focus: 'start',
+        gap: undefined,
+        breakpoints: { 1260: { perPage: 3, arrows: false, pagination: true }, 974: { perPage: 2 }, 768: { perPage: 1 } },
+      },
+    ],
     [
       '.specialists-carousel',
       {
@@ -90,7 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
       },
     ],
-    ['.ceo-carousel', { ...BASE_SPLIDE, perPage: 2, pagination: false }],
+    [
+      '.ceo-carousel',
+      { ...BASE_SPLIDE, perPage: 2, pagination: false, breakpoints: { 1260: { perPage: 1, arrows: false, pagination: true } } },
+    ],
   ];
 
   function mountSplide(selector, options) {
