@@ -361,3 +361,34 @@ input, textarea
             letter-spacing: -0.03em
         b
             font-weight: 600
+
+.fancybox__container
+    --fancybox-bg: rgba(0,0,0,.6)
+
+.popup-more
+    display: none
+    padding: 20px
+    border-radius: 20px
+    max-width: 600px
+    width: 100%
+    color: var(--color-black)
+    &__title
+        text-align: center
+        font-size: 28px
+        line-height: 0.9
+        letter-spacing: -0.03em
+        margin-bottom: 20px
+    &__text
+        @include flexbox
+        flex-direction: column
+        align-items: flex-start
+        gap: 12px
+        line-height: 1.2
+        letter-spacing: -0.03em
+        font-weight: 400
+
+.popup-form
+    padding: 0
+    background: transparent
+    .waiting-form
+        margin: 0 !important

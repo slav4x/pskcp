@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     Images: {
       zoom: false,
     },
+    Iframe: {
+      attr: {
+        allow: 'autoplay; fullscreen; picture-in-picture; screen-wake-lock',
+      },
+    },
+    on: {
+      reveal: (fancybox, slide) => {
+        const form = slide.triggerEl.dataset.form;
+        const formEl = document.querySelector('#popup-form input[name="form"]');
+
+        formEl.value = form;
+      },
+    },
   });
 
   const maskOptions = {
@@ -109,4 +122,103 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapper.style.height = head.classList.contains('open') ? `${content.scrollHeight}px` : null;
     });
   });
+
+  function setToken(form) {
+    const token = generateToken();
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 't';
+    hiddenInput.value = token;
+    form.appendChild(hiddenInput);
+  }
+
+  const forms = document.querySelectorAll('form:not([method="get"])');
+  forms.forEach(function (form) {
+    setToken(form);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const button = form.querySelector('button.btn');
+
+      button.style.opacity = 0.5;
+      button.style.cursor = 'not-allowed';
+      button.disabled = true;
+
+      const formUrl = form.getAttribute('action');
+      const formData = new FormData(this);
+
+      fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => {
+          window.location.href = '/thanks';
+        })
+        .catch((error) => console.error('Error:', error));
+    });
+  });
+
+  function getUtmParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    for (const [key, value] of urlParams.entries()) {
+      if (key !== 's') {
+        utmParams[key] = value;
+      }
+    }
+    return utmParams;
+  }
+
+  function setUtmParamsInForms(utmParams) {
+    const forms = document.querySelectorAll('form');
+    forms.forEach((form) => {
+      Object.keys(utmParams).forEach((key) => {
+        if (key !== 's') {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = utmParams[key];
+          form.appendChild(input);
+        }
+      });
+    });
+  }
+
+  function saveUtmParamsWithExpiration(utmParams) {
+    const expirationTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+    const dataToSave = {
+      utmParams,
+      expirationTime,
+    };
+    localStorage.setItem('utmData', JSON.stringify(dataToSave));
+  }
+
+  function loadUtmParamsFromLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('utmData'));
+    if (data && data.expirationTime > new Date().getTime()) {
+      return data.utmParams;
+    } else {
+      return {};
+    }
+  }
+
+  function clearUtmParamsIfExpired() {
+    const data = JSON.parse(localStorage.getItem('utmData'));
+    if (data && data.expirationTime <= new Date().getTime()) {
+      localStorage.removeItem('utmData');
+    }
+  }
+
+  const utmParamsFromUrl = getUtmParams();
+  const savedUtmParams = loadUtmParamsFromLocalStorage();
+
+  if (Object.keys(utmParamsFromUrl).length > 0) {
+    setUtmParamsInForms(utmParamsFromUrl);
+    saveUtmParamsWithExpiration(utmParamsFromUrl);
+  } else if (Object.keys(savedUtmParams).length > 0) {
+    setUtmParamsInForms(savedUtmParams);
+  }
+
+  clearUtmParamsIfExpired();
 });

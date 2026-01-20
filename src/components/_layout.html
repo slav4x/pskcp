@@ -26,6 +26,24 @@
 
 		{% include 'components/_footer.html' %}
 
+		<div class="popup-form" id="popup-form">
+			<form action="#" method="post" class="waiting-form">
+				<div class="waiting-form__title">Оставьте свои контакты, и&#160;мы&#160;с&#160;радостью ответим на&#160;все ваши вопросы</div>
+				<select name="messenger" class="select">
+					<option selected disabled>Выберите удобный мессенджер</option>
+					<option value="Telegram">Telegram</option>
+					<option value="What's App">What&#8217;s App</option>
+				</select>
+				<input type="tel" name="phone" placeholder="Введите номер телефона" class="input masked">
+				<button class="btn btn-orange">Отправить</button>
+				<input type="hidden" name="form">
+				<label class="checkbox">
+					<input type="checkbox" required checked>
+					<p>Нажимая на&#160;кнопку, я&#160;соглашаюсь с&#160;<a href="#">обработкой персональных данных</a></p>
+				</label>
+			</form>
+		</div>
+
 		<script defer src="./js/libs.js?cb"></script>
 		<script defer src="./js/main.js?cb"></script>
 	</body>
