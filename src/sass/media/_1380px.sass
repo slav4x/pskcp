@@ -1,7 +1,32 @@
 @media (max-width: 1380px)
 	.header
+		position: relative
+		z-index: 20
+		&-block
+			position: relative
 		&-nav
-			display: none
+			position: absolute
+			top: 100%
+			right: 0
+			background: var(--color-white)
+			color: var(--color-black)
+			padding: 20px
+			border-radius: 20px
+			max-width: 480px
+			transition: var(--transition-ms)
+			opacity: 0
+			pointer-events: none
+			li
+				min-width: 0
+				width: calc(100% / 2 - 5px)
+				a
+					font-size: 16px
+				&:nth-child(5)
+					order: 2
+			&.open
+				top: calc(100% + 12px)
+				opacity: 1
+				pointer-events: auto
 		&-burger
 			display: block
 		&-contact

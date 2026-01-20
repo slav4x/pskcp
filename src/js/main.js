@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.masked').forEach((item) => new IMask(item, maskOptions));
 
+  const headerBurger = document.querySelector('.header-burger');
+  const headerNav = document.querySelector('.header-nav');
+  headerBurger.addEventListener('click', () => {
+    headerNav.classList.toggle('open');
+  });
+
   const BASE_SPLIDE = {
     perMove: 1,
     gap: 20,
