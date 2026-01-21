@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.appendChild(hiddenInput);
   }
 
-  const forms = document.querySelectorAll('form:not([method="get"])');
+  const forms = document.querySelectorAll('form.waiting-form');
   forms.forEach(function (form) {
     setToken(form);
 

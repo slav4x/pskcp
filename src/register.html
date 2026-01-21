@@ -1,0 +1,23 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Регистрация' %}
+
+{% block content %}
+
+<section class="section-full auth">
+	<div class="container">
+		<form method="post" class="auth-form">
+			<div class="auth-title">Регистрация специалиста в личном кабиете</div>
+			<input type="text" name="name" class="input" placeholder="ФИО" required>
+			<input type="tel" name="phone" class="input masked" placeholder="Номер телефона" required>
+			<input type="email" name="email" class="input" placeholder="E-mail" required>
+			<input type="password" name="password" class="input" placeholder="Пароль" required>
+			<input type="password" name="password" class="input" placeholder="Повторите ароль" required>
+			<button class="btn btn-orange">Зарегистрироваться</button>
+			<ul class="auth-links">
+				<li><a href="#">Войти</a></li>
+			</ul>
+		</form>
+	</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Логин' %}
+
+{% block content %}
+
+<section class="section-full auth">
+	<div class="container">
+		<form method="post" class="auth-form">
+			<div class="auth-title">Войдите в личный кабинет</div>
+			<input type="email" name="email" class="input" placeholder="E-mail" required>
+			<input type="password" name="password" class="input" placeholder="Пароль" required>
+			<button class="btn btn-orange">Войти</button>
+			<ul class="auth-links">
+				<li><a href="#">Забыли пароль?</a></li>
+				<li><a href="#">Регистрация</a></li>
+			</ul>
+		</form>
+	</div>
+</section>
+
+{% endblock %}
