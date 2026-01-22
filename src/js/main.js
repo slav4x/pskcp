@@ -4,6 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     duration: 600,
   });
 
+  function updateStickyTop() {
+    const sections = document.querySelectorAll('.section-sticky');
+    const vh = window.innerHeight;
+
+    sections.forEach((section) => {
+      const h = section.offsetHeight;
+      const diff = h - vh;
+
+      section.style.top = diff > 0 ? `-${diff}px` : '0px';
+    });
+  }
+
+  window.addEventListener('load', updateStickyTop);
+  window.addEventListener('resize', updateStickyTop);
+
   Fancybox.bind('[data-fancybox]', {
     dragToClose: false,
     autoFocus: false,
