@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  AOS.init({
+    offset: 300,
+    duration: 600,
+  });
+
   Fancybox.bind('[data-fancybox]', {
     dragToClose: false,
     autoFocus: false,
