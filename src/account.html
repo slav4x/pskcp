@@ -1,0 +1,425 @@
+{% extends 'components/_layout.html' %}
+{% set site_title = 'Аккаунт' %}
+{% set white_bg = true %}
+
+{% block content %}
+
+<div class="account-message__wrap">
+	<div class="account-message error">Все изменения сохранены</div>
+</div>
+
+<section class="section section-top-sm section-bottom-lg account">
+	<div class="container">
+		<div class="account-name">
+			<input type="text" value="Бондаренко Ольга Рифкатовна" disabled>
+			<span></span>
+		</div>
+		<form method="post" class="account-photo" enctype="multipart/form-data">
+			<label>
+				<img src="img/specialists-item.jpg" alt="">
+				<input type="file" name="avatar_file" accept="image/*" required>
+			</label>
+			<button type="submit"></button>
+		</form>
+		<h3 class="account-bio">Личная информация</h3>
+		<form action="#" method="post" class="account-grid">
+			<div class="account-col">
+				<div class="account-group h-a">
+					<div class="account-group__title">Вид членства</div>
+					<div class="account-group__content" style="background: var(--color-grey-light);">Клиент-центрированный психотерапевт</div>
+				</div>
+				<div class="account-group h-a">
+					<div class="account-group__title">Карьера</div>
+					<div class="account-group__content" style="background: var(--color-grey-light);">
+						<ul class="account-group__list">
+							<li><p>Ведущий тренер и супервизор</p></li>
+							<li><p>Кандидат психологических наук, доцент</p></li>
+							<li><p>Руководитель учебной программы по профессиональной переподготовке «Клиент-центрированная психотерапия»</p></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="account-col">
+				<div class="account-group">
+					<div class="account-group__title">Образование ПСКП</div>
+					<div class="account-group__content">
+						<ul class="account-edu" id="edu-preview">
+							<li data-edu-index>
+								<span>1971 — 1976</span>
+								<p>Московский государственный университет им. М.В. Ломоносова. Факультет психологии. Специальность- психолог, преподаватель психологии</p>
+							</li>
+						</ul>
+						<div data-fancybox data-src="#edu-edit" class="account-edu__edit-icon"></div>
+						<div class="account-edu__edit" id="edu-edit">
+							<div class="account-edu__edit-title">Образование ПСКП</div>
+							<div class="account-edu__edit-list" id="edu-editor">
+								<div class="account-edu__edit-item edu-row" data-edu-index>
+									<input type="text" class="input" name="edu_year[]" placeholder="1971 — 1976">
+									<input type="text" class="input" name="edu_text[]" placeholder="Учебное заведение, факультет, специальность">
+									<input type="hidden" class="edu-delete-flag" name="edu_delete[]" value="0">
+									<button type="button" class="account-edu__edit-delete edu-delete"></button>
+								</div>
+							</div>
+							<button type="button" class="account-edu__edit-add" id="edu-add"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="account-col">
+				<div class="account-contacts">
+					<label class="account-contacts__item">
+						<p>Год начала работы</p>
+						<input type="text" class="input" placeholder="2004">
+					</label>
+					<label class="account-contacts__item">
+						<p>Город</p>
+						<input type="text" class="input" placeholder="Москва">
+					</label>
+					<label class="account-contacts__item">
+						<p>Прием</p>
+						<select class="select">
+							<option value="1">1</option>
+						</select>
+					</label>
+					<label class="account-contacts__item">
+						<p>Адрес приема</p>
+						<input type="text" class="input" placeholder="Москва, Театральная 1">
+					</label>
+					<label class="account-contacts__item">
+						<p>Номер телефона</p>
+						<input type="tel" class="input masked" placeholder="+7 (000) 000-00-00">
+					</label>
+					<label class="account-contacts__item">
+						<p>Электронная почта</p>
+						<input type="email" class="input" placeholder="mail@example.ru">
+					</label>
+					<label class="account-contacts__item">
+						<p>Сайт</p>
+						<input type="text" class="input" placeholder="carl-rogers.ru">
+					</label>
+					<label class="account-contacts__item">
+						<p>Мессенджеры</p>
+						<ul class="account-messengers">
+							<li data-social="whatsapp">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C13.2376 32 10.6387 31.3 8.37109 30.0677L0 32L2.35156 24.3529C0.860351 21.9214 0 19.0613 0 16C0 7.16344 7.16344 0 16 0Z" fill="var(--icon-color)"/>
+									<path d="M21.9205 18.8351C21.5561 18.6639 19.7778 17.8079 19.4571 17.6795C19.1219 17.5653 18.8886 17.5083 18.6408 17.8507C18.393 18.2073 17.7079 19.0063 17.5039 19.2345C17.2998 19.4771 17.0812 19.5056 16.7167 19.3201C16.3523 19.1489 15.1862 18.7637 13.816 17.5653C12.7374 16.6237 12.0231 15.4681 11.8045 15.1114C11.6004 14.7547 11.7753 14.5693 11.9648 14.3838C12.1251 14.2269 12.3292 13.9701 12.5041 13.7703C12.6791 13.5706 12.7519 13.4137 12.8685 13.1854C12.9852 12.9429 12.9269 12.7431 12.8394 12.5719C12.7519 12.4007 12.0231 10.6602 11.7316 9.94681C11.4401 9.262 11.1339 9.3476 10.9153 9.33333H10.2156C9.96783 9.33333 9.58884 9.41893 9.25358 9.77561C8.9329 10.1323 8 10.9883 8 12.7289C8 14.4694 9.29731 16.1529 9.47223 16.3812C9.64714 16.6237 12.0231 20.1904 15.6381 21.717C16.4981 22.0879 17.1686 22.3019 17.6934 22.4589C18.5534 22.7299 19.3405 22.6871 19.9673 22.6015C20.667 22.5017 22.11 21.7455 22.4016 20.918C22.7077 20.0906 22.7077 19.3915 22.6056 19.2345C22.5036 19.0776 22.285 19.0063 21.9205 18.8351Z" fill="#F1EFEB"/>
+								</svg>
+							</li>
+							<li data-social="telegram" class="active">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z" fill="var(--icon-color)"/>
+									<path d="M23.5013 11.5263L22.5992 22.6013C22.5867 22.754 22.5331 22.9021 22.443 23.0322C22.3529 23.1624 22.2293 23.2706 22.0831 23.3471C21.937 23.4236 21.7729 23.4659 21.6057 23.4704C21.4384 23.4749 21.2733 23.4414 21.125 23.3728L14.561 20.3495C14.4246 20.2868 14.3061 20.1962 14.2146 20.0846C14.1231 19.973 14.061 19.8434 14.033 19.7056C14.0051 19.5678 14.0119 19.4255 14.0532 19.2896C14.0944 19.1536 14.1688 19.0275 14.2709 18.9209L19.0567 13.9229C19.1105 13.8678 19.0347 13.791 18.9695 13.8345L11.8141 18.607C11.3889 18.8919 10.8657 19.024 10.3459 18.9778L7.58171 18.7383C6.58378 18.6516 6.33973 17.4316 7.23161 17.0015L21.3002 10.2209C21.5398 10.1047 21.8079 10.0487 22.0769 10.0585C22.3459 10.0683 22.6061 10.1435 22.8305 10.2765C23.055 10.4095 23.2356 10.5954 23.3538 10.8151C23.472 11.0347 23.5235 11.2802 23.503 11.5261" fill="#F1EFEB"/>
+								</svg>
+							</li>
+							<li data-social="facebook" class="active">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z" fill="#F1EFEB"/>
+									<path d="M32 16.0401C32 7.18596 24.832 0 16 0C7.168 0 0 7.18596 0 16.0401C0 23.8035 5.504 30.2677 12.8 31.7594V20.8521H9.6V16.0401H12.8V12.0301C12.8 8.93434 15.312 6.41604 18.4 6.41604H22.4V11.2281H19.2C18.32 11.2281 17.6 11.9499 17.6 12.8321V16.0401H22.4V20.8521H17.6V32C25.68 31.198 32 24.3649 32 16.0401Z" fill="var(--icon-color)"/>
+								</svg>
+							</li>
+							<li data-social="vk">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M29.3333 16C29.3333 23.3638 23.3638 29.3333 16 29.3333C8.6362 29.3333 2.66667 23.3638 2.66667 16C2.66667 8.6362 8.6362 2.66667 16 2.66667C23.3638 2.66667 29.3333 8.6362 29.3333 16Z" fill="#F1EFEB"/>
+									<path d="M20.9168 0H11.1008C2.1312 0 0 2.1328 0 11.0832V20.9008C0 29.8672 2.1168 32 11.0832 32H20.9008C29.8672 32 32 29.8832 32 20.9168V11.1008C32 2.1312 29.8832 0 20.9168 0ZM25.8336 22.832H23.4992C22.616 22.832 22.3504 22.1168 20.7664 20.5328C19.384 19.2 18.8 19.0336 18.4496 19.0336C17.9664 19.0336 17.8336 19.1664 17.8336 19.8336V21.9328C17.8336 22.5008 17.6496 22.8336 16.1664 22.8336C14.7272 22.7358 13.3317 22.2981 12.0946 21.5563C10.8574 20.8145 9.81385 19.7898 9.0496 18.5664C7.23576 16.3112 5.97444 13.6631 5.3664 10.8336C5.3664 10.4832 5.4992 10.1664 6.1664 10.1664H8.5008C9.1008 10.1664 9.3168 10.4336 9.5504 11.0496C10.6832 14.384 12.616 17.2832 13.4 17.2832C13.7008 17.2832 13.832 17.1504 13.832 16.4V12.9664C13.7328 11.4 12.9008 11.2672 12.9008 10.7008C12.9115 10.5514 12.9799 10.4121 13.0917 10.3123C13.2034 10.2125 13.3496 10.1602 13.4992 10.1664H17.1664C17.6672 10.1664 17.8336 10.416 17.8336 11.016V15.6496C17.8336 16.1504 18.0496 16.3168 18.2 16.3168C18.5008 16.3168 18.7328 16.1504 19.2832 15.6C20.4654 14.1583 21.4312 12.5521 22.1504 10.832C22.2244 10.6257 22.3636 10.4491 22.5469 10.329C22.7302 10.2089 22.9477 10.1518 23.1664 10.1664H25.5008C26.2 10.1664 26.3488 10.5168 26.2 11.016C25.3512 12.9175 24.301 14.7225 23.0672 16.4C22.816 16.784 22.7152 16.984 23.0672 17.4336C23.2992 17.784 24.1168 18.4672 24.6672 19.1168C25.4667 19.9149 26.1309 20.8379 26.6336 21.8496C26.8336 22.4992 26.4992 22.832 25.8336 22.832Z" fill="var(--icon-color)"/>
+								</svg>
+							</li>
+							<li><span class="account-messengers__open" data-fancybox data-src="#messengers-edit"></span></li>
+						</ul>
+					</label>
+					<div class="account-messengers__edit" id="messengers-edit">
+						<div class="account-messengers__edit-title">Выберите мессенджеры и укажите видимость</div>
+						<div class="account-messengers__edit-item">
+							<div class="account-messengers__edit-icon">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C13.2376 32 10.6387 31.3 8.37109 30.0677L0 32L2.35156 24.3529C0.860351 21.9214 0 19.0613 0 16C0 7.16344 7.16344 0 16 0Z" fill="#1491B3"/>
+									<path d="M21.9205 18.8351C21.5561 18.6639 19.7778 17.8079 19.4571 17.6795C19.1219 17.5653 18.8886 17.5083 18.6408 17.8507C18.393 18.2073 17.7079 19.0063 17.5039 19.2345C17.2998 19.4771 17.0812 19.5056 16.7167 19.3201C16.3523 19.1489 15.1862 18.7637 13.816 17.5653C12.7374 16.6237 12.0231 15.4681 11.8045 15.1114C11.6004 14.7547 11.7753 14.5693 11.9648 14.3838C12.1251 14.2269 12.3292 13.9701 12.5041 13.7703C12.6791 13.5706 12.7519 13.4137 12.8685 13.1854C12.9852 12.9429 12.9269 12.7431 12.8394 12.5719C12.7519 12.4007 12.0231 10.6602 11.7316 9.94681C11.4401 9.262 11.1339 9.3476 10.9153 9.33333H10.2156C9.96783 9.33333 9.58884 9.41893 9.25358 9.77561C8.9329 10.1323 8 10.9883 8 12.7289C8 14.4694 9.29731 16.1529 9.47223 16.3812C9.64714 16.6237 12.0231 20.1904 15.6381 21.717C16.4981 22.0879 17.1686 22.3019 17.6934 22.4589C18.5534 22.7299 19.3405 22.6871 19.9673 22.6015C20.667 22.5017 22.11 21.7455 22.4016 20.918C22.7077 20.0906 22.7077 19.3915 22.6056 19.2345C22.5036 19.0776 22.285 19.0063 21.9205 18.8351Z" fill="#F1EFEB"/>
+								</svg>
+							</div>
+							<input type="text" class="input" name="whatsapp" placeholder="What's App">
+							<label class="account-messengers__edit-view">
+								<input type="checkbox" name="whatsapp-view">
+								<svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.5 4.8C10.6682 4.8 9.87044 5.13714 9.28226 5.73726C8.69407 6.33737 8.36364 7.15131 8.36364 8C8.36364 8.84869 8.69407 9.66263 9.28226 10.2627C9.87044 10.8629 10.6682 11.2 11.5 11.2C12.3318 11.2 13.1296 10.8629 13.7177 10.2627C14.3059 9.66263 14.6364 8.84869 14.6364 8C14.6364 7.15131 14.3059 6.33737 13.7177 5.73726C13.1296 5.13714 12.3318 4.8 11.5 4.8ZM11.5 13.3333C10.1136 13.3333 8.78406 12.7714 7.80376 11.7712C6.82346 10.771 6.27273 9.41449 6.27273 8C6.27273 6.58551 6.82346 5.22896 7.80376 4.22876C8.78406 3.22857 10.1136 2.66667 11.5 2.66667C12.8864 2.66667 14.2159 3.22857 15.1962 4.22876C16.1765 5.22896 16.7273 6.58551 16.7273 8C16.7273 9.41449 16.1765 10.771 15.1962 11.7712C14.2159 12.7714 12.8864 13.3333 11.5 13.3333ZM11.5 0C6.27273 0 1.80864 3.31733 0 8C1.80864 12.6827 6.27273 16 11.5 16C16.7273 16 21.1914 12.6827 23 8C21.1914 3.31733 16.7273 0 11.5 0Z" fill="#1E1913"/>
+								</svg>
+							</label>
+						</div>
+						<div class="account-messengers__edit-item">
+							<div class="account-messengers__edit-icon">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z" fill="#1491B3"/>
+									<path d="M23.5013 11.5263L22.5992 22.6013C22.5867 22.754 22.5331 22.9021 22.443 23.0322C22.3529 23.1624 22.2293 23.2706 22.0831 23.3471C21.937 23.4236 21.7729 23.4659 21.6057 23.4704C21.4384 23.4749 21.2733 23.4414 21.125 23.3728L14.561 20.3495C14.4246 20.2868 14.3061 20.1962 14.2146 20.0846C14.1231 19.973 14.061 19.8434 14.033 19.7056C14.0051 19.5678 14.0119 19.4255 14.0532 19.2896C14.0944 19.1536 14.1688 19.0275 14.2709 18.9209L19.0567 13.9229C19.1105 13.8678 19.0347 13.791 18.9695 13.8345L11.8141 18.607C11.3889 18.8919 10.8657 19.024 10.3459 18.9778L7.58171 18.7383C6.58378 18.6516 6.33973 17.4316 7.23161 17.0015L21.3002 10.2209C21.5398 10.1047 21.8079 10.0487 22.0769 10.0585C22.3459 10.0683 22.6061 10.1435 22.8305 10.2765C23.055 10.4095 23.2356 10.5954 23.3538 10.8151C23.472 11.0347 23.5235 11.2802 23.503 11.5261" fill="#F1EFEB"/>
+								</svg>
+							</div>
+							<input type="text" class="input" name="telegram" placeholder="Telegram">
+							<label class="account-messengers__edit-view">
+								<input type="checkbox" name="telegram-view">
+								<svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.5 4.8C10.6682 4.8 9.87044 5.13714 9.28226 5.73726C8.69407 6.33737 8.36364 7.15131 8.36364 8C8.36364 8.84869 8.69407 9.66263 9.28226 10.2627C9.87044 10.8629 10.6682 11.2 11.5 11.2C12.3318 11.2 13.1296 10.8629 13.7177 10.2627C14.3059 9.66263 14.6364 8.84869 14.6364 8C14.6364 7.15131 14.3059 6.33737 13.7177 5.73726C13.1296 5.13714 12.3318 4.8 11.5 4.8ZM11.5 13.3333C10.1136 13.3333 8.78406 12.7714 7.80376 11.7712C6.82346 10.771 6.27273 9.41449 6.27273 8C6.27273 6.58551 6.82346 5.22896 7.80376 4.22876C8.78406 3.22857 10.1136 2.66667 11.5 2.66667C12.8864 2.66667 14.2159 3.22857 15.1962 4.22876C16.1765 5.22896 16.7273 6.58551 16.7273 8C16.7273 9.41449 16.1765 10.771 15.1962 11.7712C14.2159 12.7714 12.8864 13.3333 11.5 13.3333ZM11.5 0C6.27273 0 1.80864 3.31733 0 8C1.80864 12.6827 6.27273 16 11.5 16C16.7273 16 21.1914 12.6827 23 8C21.1914 3.31733 16.7273 0 11.5 0Z" fill="#1E1913"/>
+								</svg>
+							</label>
+						</div>
+						<div class="account-messengers__edit-item">
+							<div class="account-messengers__edit-icon">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16Z" fill="#F1EFEB"/>
+									<path d="M32 16.0401C32 7.18596 24.832 0 16 0C7.168 0 0 7.18596 0 16.0401C0 23.8035 5.504 30.2677 12.8 31.7594V20.8521H9.6V16.0401H12.8V12.0301C12.8 8.93434 15.312 6.41604 18.4 6.41604H22.4V11.2281H19.2C18.32 11.2281 17.6 11.9499 17.6 12.8321V16.0401H22.4V20.8521H17.6V32C25.68 31.198 32 24.3649 32 16.0401Z" fill="#1491B3"/>
+								</svg>
+							</div>
+							<input type="text" class="input" name="facebook" placeholder="Facebook">
+							<label class="account-messengers__edit-view">
+								<input type="checkbox" name="facebook-view">
+								<svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.5 4.8C10.6682 4.8 9.87044 5.13714 9.28226 5.73726C8.69407 6.33737 8.36364 7.15131 8.36364 8C8.36364 8.84869 8.69407 9.66263 9.28226 10.2627C9.87044 10.8629 10.6682 11.2 11.5 11.2C12.3318 11.2 13.1296 10.8629 13.7177 10.2627C14.3059 9.66263 14.6364 8.84869 14.6364 8C14.6364 7.15131 14.3059 6.33737 13.7177 5.73726C13.1296 5.13714 12.3318 4.8 11.5 4.8ZM11.5 13.3333C10.1136 13.3333 8.78406 12.7714 7.80376 11.7712C6.82346 10.771 6.27273 9.41449 6.27273 8C6.27273 6.58551 6.82346 5.22896 7.80376 4.22876C8.78406 3.22857 10.1136 2.66667 11.5 2.66667C12.8864 2.66667 14.2159 3.22857 15.1962 4.22876C16.1765 5.22896 16.7273 6.58551 16.7273 8C16.7273 9.41449 16.1765 10.771 15.1962 11.7712C14.2159 12.7714 12.8864 13.3333 11.5 13.3333ZM11.5 0C6.27273 0 1.80864 3.31733 0 8C1.80864 12.6827 6.27273 16 11.5 16C16.7273 16 21.1914 12.6827 23 8C21.1914 3.31733 16.7273 0 11.5 0Z" fill="#1E1913"/>
+								</svg>
+							</label>
+						</div>
+						<div class="account-messengers__edit-item">
+							<div class="account-messengers__edit-icon">
+								<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M29.3333 16C29.3333 23.3638 23.3638 29.3333 16 29.3333C8.6362 29.3333 2.66667 23.3638 2.66667 16C2.66667 8.6362 8.6362 2.66667 16 2.66667C23.3638 2.66667 29.3333 8.6362 29.3333 16Z" fill="#F1EFEB"/>
+									<path d="M20.9168 0H11.1008C2.1312 0 0 2.1328 0 11.0832V20.9008C0 29.8672 2.1168 32 11.0832 32H20.9008C29.8672 32 32 29.8832 32 20.9168V11.1008C32 2.1312 29.8832 0 20.9168 0ZM25.8336 22.832H23.4992C22.616 22.832 22.3504 22.1168 20.7664 20.5328C19.384 19.2 18.8 19.0336 18.4496 19.0336C17.9664 19.0336 17.8336 19.1664 17.8336 19.8336V21.9328C17.8336 22.5008 17.6496 22.8336 16.1664 22.8336C14.7272 22.7358 13.3317 22.2981 12.0946 21.5563C10.8574 20.8145 9.81385 19.7898 9.0496 18.5664C7.23576 16.3112 5.97444 13.6631 5.3664 10.8336C5.3664 10.4832 5.4992 10.1664 6.1664 10.1664H8.5008C9.1008 10.1664 9.3168 10.4336 9.5504 11.0496C10.6832 14.384 12.616 17.2832 13.4 17.2832C13.7008 17.2832 13.832 17.1504 13.832 16.4V12.9664C13.7328 11.4 12.9008 11.2672 12.9008 10.7008C12.9115 10.5514 12.9799 10.4121 13.0917 10.3123C13.2034 10.2125 13.3496 10.1602 13.4992 10.1664H17.1664C17.6672 10.1664 17.8336 10.416 17.8336 11.016V15.6496C17.8336 16.1504 18.0496 16.3168 18.2 16.3168C18.5008 16.3168 18.7328 16.1504 19.2832 15.6C20.4654 14.1583 21.4312 12.5521 22.1504 10.832C22.2244 10.6257 22.3636 10.4491 22.5469 10.329C22.7302 10.2089 22.9477 10.1518 23.1664 10.1664H25.5008C26.2 10.1664 26.3488 10.5168 26.2 11.016C25.3512 12.9175 24.301 14.7225 23.0672 16.4C22.816 16.784 22.7152 16.984 23.0672 17.4336C23.2992 17.784 24.1168 18.4672 24.6672 19.1168C25.4667 19.9149 26.1309 20.8379 26.6336 21.8496C26.8336 22.4992 26.4992 22.832 25.8336 22.832Z" fill="#1491B3"/>
+								</svg>
+							</div>
+							<input type="text" class="input" name="vk" placeholder="VK">
+							<label class="account-messengers__edit-view">
+								<input type="checkbox" name="vk-view">
+								<svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.5 4.8C10.6682 4.8 9.87044 5.13714 9.28226 5.73726C8.69407 6.33737 8.36364 7.15131 8.36364 8C8.36364 8.84869 8.69407 9.66263 9.28226 10.2627C9.87044 10.8629 10.6682 11.2 11.5 11.2C12.3318 11.2 13.1296 10.8629 13.7177 10.2627C14.3059 9.66263 14.6364 8.84869 14.6364 8C14.6364 7.15131 14.3059 6.33737 13.7177 5.73726C13.1296 5.13714 12.3318 4.8 11.5 4.8ZM11.5 13.3333C10.1136 13.3333 8.78406 12.7714 7.80376 11.7712C6.82346 10.771 6.27273 9.41449 6.27273 8C6.27273 6.58551 6.82346 5.22896 7.80376 4.22876C8.78406 3.22857 10.1136 2.66667 11.5 2.66667C12.8864 2.66667 14.2159 3.22857 15.1962 4.22876C16.1765 5.22896 16.7273 6.58551 16.7273 8C16.7273 9.41449 16.1765 10.771 15.1962 11.7712C14.2159 12.7714 12.8864 13.3333 11.5 13.3333ZM11.5 0C6.27273 0 1.80864 3.31733 0 8C1.80864 12.6827 6.27273 16 11.5 16C16.7273 16 21.1914 12.6827 23 8C21.1914 3.31733 16.7273 0 11.5 0Z" fill="#1E1913"/>
+								</svg>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="account-col">
+				<div class="account-group">
+					<div class="account-group__title">Образование вне ПСКП</div>
+					<div class="account-group__content">
+						<ul class="account-edu" id="edu-outside-preview">
+							<li data-edu-outside-index>
+								<span>1971 — 1976</span>
+								<p>Московский государственный университет им. М.В. Ломоносова. Факультет психологии. Специальность- психолог, преподаватель психологии</p>
+							</li>
+						</ul>
+						<div data-fancybox data-src="#edu-outside-edit" class="account-edu__edit-icon"></div>
+						<div class="account-edu__edit" id="edu-outside-edit">
+							<div class="account-edu__edit-title">Образование вне ПСКП</div>
+							<div class="account-edu__edit-list" id="edu-outside-editor">
+								<div class="account-edu__edit-item edu-outside-row" data-edu-outside-index>
+									<input type="text" class="input" name="edu_outside_year[]" placeholder="1971 — 1976">
+									<input type="text" class="input" name="edu_outside_text[]" placeholder="Учебное заведение, факультет, специальность">
+									<input type="hidden" class="edu-outside-delete-flag" name="edu_outside_delete[]" value="0">
+									<button type="button" class="account-edu__edit-delete edu-outside-delete"></button>
+								</div>
+							</div>
+							<button type="button" class="account-edu__edit-add" id="edu-outside-add"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="account-col fluid">
+				<div class="account-group">
+					<div class="account-group__title">Информация о себе</div>
+					<div class="account-group__content">
+						<textarea name="info" placeholder="Введите текст" class="textarea"></textarea>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" name="fio">
+			<button class="btn btn-orange" style="margin: 0 auto; order: 20;">Сохранить изменения</button>
+		</form>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('.account-name').forEach((block) => {
+			const input = block.querySelector('input[type="text"]');
+			const hidden = document.querySelector('input[name="fio"]');
+			const toggle = block.querySelector('span');
+
+			const mirror = document.createElement('span');
+			mirror.style.position = 'absolute';
+			mirror.style.visibility = 'hidden';
+			mirror.style.whiteSpace = 'pre';
+			document.body.appendChild(mirror);
+
+			const sync = () => {
+				mirror.style.font = getComputedStyle(input).font;
+				mirror.textContent = input.value || '';
+				input.style.width = mirror.offsetWidth + 8 + 'px';
+
+				if (hidden) hidden.value = input.value;
+			};
+
+			sync();
+			input.addEventListener('input', sync);
+
+			toggle.addEventListener('click', () => {
+				input.disabled = !input.disabled;
+
+				if (!input.disabled) {
+					input.focus();
+				}
+			});
+		});
+
+		document.querySelectorAll('.account-photo').forEach((form) => {
+			const input = form.querySelector('input[type="file"]');
+			const img = form.querySelector('img');
+			const btn = form.querySelector('button');
+
+			const originalSrc = img.src;
+
+			input.addEventListener('change', () => {
+				const file = input.files[0];
+
+				if (!file) {
+					img.src = originalSrc;
+					btn.classList.remove('save');
+					return;
+				}
+
+				if (!file.type.startsWith('image/')) return;
+
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					img.src = e.target.result;
+					btn.classList.add('save');
+				};
+				reader.readAsDataURL(file);
+			});
+		});
+	});
+
+	document.addEventListener('DOMContentLoaded', function () {
+		const editor = document.getElementById('edu-editor');
+		const preview = document.getElementById('edu-preview');
+		const addBtn = document.getElementById('edu-add');
+		if (!editor || !addBtn) return;
+
+		editor.addEventListener('click', function (e) {
+			const btn = e.target.closest('.edu-delete');
+			if (!btn) return;
+
+			const row = btn.closest('.edu-row');
+			if (!row) return;
+
+			const idx = row.getAttribute('data-edu-index');
+
+			const flag = row.querySelector('.edu-delete-flag');
+			if (flag) flag.value = '1';
+
+			row.style.display = 'none';
+
+			if (preview && idx !== null) {
+				const prevRow = preview.querySelector('li[data-edu-index="' + idx + '"]');
+				if (prevRow) prevRow.style.display = 'none';
+			}
+		});
+
+		addBtn.addEventListener('click', function () {
+			const div = document.createElement('div');
+			div.className = 'account-edu__edit-item edu-row';
+			div.setAttribute('data-edu-index', 'new-' + Date.now());
+
+			div.innerHTML = `
+				<input type="text" class="input" name="edu_year[]" placeholder="1971 — 1976">
+				<input type="text" class="input" name="edu_text[]" placeholder="Учебное заведение, факультет, специальность">
+				<input type="hidden" class="edu-delete-flag" name="edu_delete[]" value="0">
+				<button type="button" class="account-edu__edit-delete edu-delete"></button>
+			`;
+			editor.appendChild(div);
+		});
+	});
+
+	document.addEventListener('DOMContentLoaded', function () {
+		const editor = document.getElementById('edu-outside-editor');
+		const preview = document.getElementById('edu-outside-preview');
+		const addBtn = document.getElementById('edu-outside-add');
+
+		if (!editor || !preview || !addBtn) return;
+
+		function syncPreview(idx, yearVal, textVal) {
+			const li = preview.querySelector('li[data-edu-outside-index="' + idx + '"]');
+			if (!li) return;
+
+			const span = li.querySelector('span');
+			const p = li.querySelector('p');
+
+			span.textContent = yearVal && yearVal.trim() ? yearVal.trim() : '—';
+			p.textContent = textVal && textVal.trim() ? textVal.trim() : '—';
+		}
+
+		function ensurePreviewRow(idx) {
+			let li = preview.querySelector('li[data-edu-outside-index="' + idx + '"]');
+			if (li) return li;
+
+			li = document.createElement('li');
+			li.setAttribute('data-edu-outside-index', idx);
+			li.innerHTML = `<span>—</span><p>—</p>`;
+			preview.appendChild(li);
+			return li;
+		}
+
+		editor.addEventListener('click', function (e) {
+			const btn = e.target.closest('.edu-outside-delete');
+			if (!btn) return;
+
+			const row = btn.closest('.edu-outside-row');
+			if (!row) return;
+
+			const idx = row.getAttribute('data-edu-outside-index');
+
+			const flag = row.querySelector('.edu-delete-flag');
+			if (flag) flag.value = '1';
+
+			row.style.display = 'none';
+
+			const prevRow = preview.querySelector('li[data-edu-outside-index="' + idx + '"]');
+			if (prevRow) prevRow.style.display = 'none';
+		});
+
+		editor.addEventListener('input', function (e) {
+			const row = e.target.closest('.edu-outside-row');
+			if (!row) return;
+
+			const idx = row.getAttribute('data-edu-outside-index');
+			if (!idx) return;
+
+			const yearInput = row.querySelector('input[name="edu_outside_year[]"]');
+			const textInput = row.querySelector('input[name="edu_outside_text[]"]');
+
+			ensurePreviewRow(idx);
+			syncPreview(idx, yearInput ? yearInput.value : '', textInput ? textInput.value : '');
+		});
+
+		addBtn.addEventListener('click', function () {
+			const idx = 'new-' + Date.now();
+
+			ensurePreviewRow(idx);
+
+			const div = document.createElement('div');
+			div.className = 'account-edu__edit-item edu-outside-row';
+			div.setAttribute('data-edu-outside-index', idx);
+
+			div.innerHTML = `
+			<input type="text" class="input" name="edu_outside_year[]" placeholder="1971 — 1976">
+			<input type="text" class="input" name="edu_outside_text[]" placeholder="Учебное заведение, факультет, специальность">
+			<input type="hidden" class="edu-outside-delete-flag" name="edu_outside_delete[]" value="0">
+			<button type="button" class="account-edu__edit-delete edu-outside-delete"></button>
+			`;
+
+			editor.appendChild(div);
+
+			const yearInput = div.querySelector('input[name="edu_outside_year[]"]');
+			const textInput = div.querySelector('input[name="edu_outside_text[]"]');
+			syncPreview(idx, yearInput.value, textInput.value);
+
+			yearInput.focus();
+		});
+		});
+</script>
+
+{% endblock %}
