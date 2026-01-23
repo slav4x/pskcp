@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
-    offset: 300,
-    duration: 600,
+    offset: 200,
+    duration: 500,
+    once: true,
   });
 
   function updateStickyTop() {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('load', updateStickyTop);
-  window.addEventListener('resize', updateStickyTop);
+  // window.addEventListener('resize', updateStickyTop);
 
   Fancybox.bind('[data-fancybox]', {
     dragToClose: false,

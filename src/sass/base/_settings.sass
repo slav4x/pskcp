@@ -5,7 +5,7 @@ body
     font-family: 'LTSuperior', sans-serif
     font-weight: 600
     font-size: 18px
-    background: var(--color-peach) url(../img/background.png) no-repeat top -294px center
+    background: var(--color-peach)
     color: var(--color-black)
     min-width: 390px
     -webkit-font-smoothing: antialiased
@@ -411,3 +411,18 @@ input, textarea
 
 .section-sticky
     position: sticky
+
+.bg
+    position: absolute
+    top: -294px
+    left: 50%
+    transform: translateX(-50%)
+    max-width: initial
+    &-wrapper
+        overflow: hidden
+        width: 100%
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100svh
