@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  AOS.init({
-    offset: 100,
-    duration: 500,
-    once: true,
-  });
-
   function updateStickyTop() {
     const sections = document.querySelectorAll('.section-sticky');
     const vh = window.innerHeight;
@@ -15,10 +9,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.style.top = diff > 0 ? `-${diff}px` : '0px';
     });
+
+    if (window.AOS) AOS.refreshHard();
   }
 
-  window.addEventListener('load', updateStickyTop);
-  // window.addEventListener('resize', updateStickyTop);
+  AOS.init({
+    offset: 200,
+    duration: 500,
+    once: true,
+  });
+
+  window.addEventListener('load', () => {
+    updateStickyTop();
+    requestAnimationFrame(() => window.AOS && AOS.refreshHard());
+  });
+
+  // window.addEventListener('resize', () => {
+  //   updateStickyTop();
+  //   requestAnimationFrame(() => window.AOS && AOS.refreshHard());
+  // });
+
+  window.addEventListener('load', () => {
+    const imgs = document.querySelectorAll('.sticky-section img');
+    imgs.forEach((img) => {
+      if (img.complete) return;
+      img.addEventListener('load', () => {
+        updateStickyTop();
+        window.AOS && AOS.refreshHard();
+      });
+    });
+  });
 
   Fancybox.bind('[data-fancybox]', {
     dragToClose: false,
