@@ -182,6 +182,9 @@ input, textarea
     letter-spacing: -0.03em
     @include placeholder
         color: rgba(0,0,0,0.4)
+    &:disabled
+        background: var(--color-grey-light)
+        cursor: not-allowed
 
 .textarea
     width: 100%
@@ -379,6 +382,8 @@ input, textarea
 
 .fancybox__container
     --fancybox-bg: rgba(0,0,0,.6)
+.fancybox__content
+    --fancybox-content-color: var(--color-black)
 
 .popup-more
     display: none

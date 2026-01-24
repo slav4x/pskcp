@@ -29,12 +29,13 @@
 		<div class="popup-form" id="popup-form">
 			<form action="#" method="post" class="waiting-form">
 				<div class="waiting-form__title">Оставьте свои контакты, и&#160;мы&#160;с&#160;радостью ответим на&#160;все ваши вопросы</div>
-				<select name="messenger" class="select">
-					<option selected disabled>Выберите удобный мессенджер</option>
-					<option value="Telegram">Telegram</option>
-					<option value="What's App">What&#8217;s App</option>
+				<select name="messenger" class="select js-contact-type" required>
+					<option selected disabled>Выберите способ связи</option>
+					<option value="phone">Телефон</option>
+					<option value="email">Email</option>
+					<option value="telegram">Telegram</option>
 				</select>
-				<input type="tel" name="phone" placeholder="Введите номер телефона" class="input masked">
+				<input type="text" name="contact" class="input js-contact-input" placeholder="Выберите способ связи выше" disabled required>
 				<button class="btn btn-orange">Отправить</button>
 				<input type="hidden" name="form">
 				<label class="checkbox">

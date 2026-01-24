@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.masked').forEach((item) => new IMask(item, maskOptions));
 
+  function ensurePhoneMask(input) {
+    if (input._imask) return;
+    input._imask = new IMask(input, maskOptions);
+  }
+
+  function destroyMask(input) {
+    if (!input._imask) return;
+    input._imask.destroy();
+    input._imask = null;
+  }
+
   const headerBurger = document.querySelector('.header-burger');
   const headerNav = document.querySelector('.header-nav');
   headerBurger.addEventListener('click', () => {
@@ -281,4 +292,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   clearUtmParamsIfExpired();
+
+  document.addEventListener('change', function (e) {
+    if (!e.target.classList.contains('js-contact-type')) return;
+
+    const form = e.target.closest('form');
+    const input = form.querySelector('.js-contact-input');
+
+    input.disabled = false;
+    input.value = '';
+
+    destroyMask(input);
+    input.classList.remove('masked');
+
+    switch (e.target.value) {
+      case 'phone':
+        input.type = 'tel';
+        input.placeholder = 'Введите номер телефона';
+        input.classList.add('masked');
+        ensurePhoneMask(input);
+        break;
+
+      case 'email':
+        input.type = 'email';
+        input.placeholder = 'Введите email';
+        break;
+
+      case 'telegram':
+        input.type = 'text';
+        input.placeholder = 'Введите ник в Telegram';
+        break;
+    }
+  });
 });
