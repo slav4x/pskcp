@@ -205,113 +205,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function generateToken() {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let token = '';
-    for (let i = 0; i < 30; i++) {
-      token += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return token;
-  }
+  const genToken = (l = 20) =>
+    Array.from({ length: l }, () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.charAt((Math.random() * 62) | 0)).join(
+      '',
+    );
 
-  function setToken(form) {
-    const token = generateToken();
-    const hiddenInput = document.createElement('input');
-    hiddenInput.type = 'hidden';
-    hiddenInput.name = 't';
-    hiddenInput.value = token;
-    form.appendChild(hiddenInput);
-  }
+  const UTM_KEY = 'utmData';
+  const UTM_TTL = 24 * 60 * 60 * 1000;
 
-  const forms = document.querySelectorAll('form.waiting-form');
-  forms.forEach(function (form) {
-    setToken(form);
+  const getUtmFromUrl = () => Object.fromEntries([...new URLSearchParams(location.search)].filter(([k]) => k !== 's'));
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  const saveUtm = (utm) =>
+    localStorage.setItem(
+      UTM_KEY,
+      JSON.stringify({
+        utm,
+        exp: Date.now() + UTM_TTL,
+      }),
+    );
 
-      const button = form.querySelector('button.btn');
-
-      button.style.opacity = 0.5;
-      button.style.cursor = 'not-allowed';
-      button.disabled = true;
-
-      const formUrl = form.getAttribute('action');
-      const formData = new FormData(this);
-
-      fetch(formUrl, {
-        method: 'POST',
-        body: formData,
-      })
-        .then((response) => {
-          window.location.href = '/thanks';
-        })
-        .catch((error) => console.error('Error:', error));
-    });
-  });
-
-  function getUtmParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmParams = {};
-    for (const [key, value] of urlParams.entries()) {
-      if (key !== 's') {
-        utmParams[key] = value;
-      }
-    }
-    return utmParams;
-  }
-
-  function setUtmParamsInForms(utmParams) {
-    const forms = document.querySelectorAll('form');
-    forms.forEach((form) => {
-      Object.keys(utmParams).forEach((key) => {
-        if (key !== 's') {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = utmParams[key];
-          form.appendChild(input);
-        }
-      });
-    });
-  }
-
-  function saveUtmParamsWithExpiration(utmParams) {
-    const expirationTime = new Date().getTime() + 24 * 60 * 60 * 1000;
-    const dataToSave = {
-      utmParams,
-      expirationTime,
-    };
-    localStorage.setItem('utmData', JSON.stringify(dataToSave));
-  }
-
-  function loadUtmParamsFromLocalStorage() {
-    const data = JSON.parse(localStorage.getItem('utmData'));
-    if (data && data.expirationTime > new Date().getTime()) {
-      return data.utmParams;
-    } else {
+  const loadUtm = () => {
+    const d = JSON.parse(localStorage.getItem(UTM_KEY));
+    if (!d || d.exp < Date.now()) {
+      localStorage.removeItem(UTM_KEY);
       return {};
     }
-  }
+    return d.utm;
+  };
 
-  function clearUtmParamsIfExpired() {
-    const data = JSON.parse(localStorage.getItem('utmData'));
-    if (data && data.expirationTime <= new Date().getTime()) {
-      localStorage.removeItem('utmData');
-    }
-  }
+  document.querySelectorAll('form.waiting-form').forEach((form) => {
+    form.insertAdjacentHTML('beforeend', `<input type="hidden" name="t" value="${genToken()}">`);
 
-  const utmParamsFromUrl = getUtmParams();
-  const savedUtmParams = loadUtmParamsFromLocalStorage();
+    const utm = Object.keys(getUtmFromUrl()).length ? (saveUtm(getUtmFromUrl()), getUtmFromUrl()) : loadUtm();
 
-  if (Object.keys(utmParamsFromUrl).length > 0) {
-    setUtmParamsInForms(utmParamsFromUrl);
-    saveUtmParamsWithExpiration(utmParamsFromUrl);
-  } else if (Object.keys(savedUtmParams).length > 0) {
-    setUtmParamsInForms(savedUtmParams);
-  }
+    Object.entries(utm).forEach(([k, v]) => form.insertAdjacentHTML('beforeend', `<input type="hidden" name="${k}" value="${v}">`));
 
-  clearUtmParamsIfExpired();
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button.btn');
+      btn.disabled = true;
+      btn.style.opacity = 0.5;
+
+      fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then(() => (location.href = '/thanks'))
+        .catch(console.error);
+    });
+  });
 
   document.addEventListener('change', function (e) {
     if (!e.target.classList.contains('js-contact-type')) return;
