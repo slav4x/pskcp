@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         arrows: false,
         rewind: false,
         drag: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, drag: true }, 768: { perPage: 1 } },
+        breakpoints: { 1260: { perPage: 2, gap: 12, drag: true }, 768: { perPage: 2 }, 576: { perPage: 1 } },
       },
     ],
     [
@@ -118,7 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         arrows: false,
         rewind: false,
         drag: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true, drag: true }, 768: { perPage: 1 } },
+        breakpoints: {
+          1260: { perPage: 2, gap: 12, arrows: false, pagination: true, drag: true },
+          768: { perPage: 2 },
+          576: { perPage: 1 },
+        },
       },
     ],
     [
@@ -130,7 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateOnMove: true,
         focus: 'start',
         gap: undefined,
-        breakpoints: { 1260: { perPage: 3, arrows: false, pagination: true }, 974: { perPage: 2 }, 768: { perPage: 1 } },
+        breakpoints: {
+          1260: { perPage: 3, arrows: false, pagination: true },
+          974: { perPage: 2 },
+          768: { perPage: 2 },
+          576: { perPage: 1 },
+        },
       },
     ],
     [
@@ -139,7 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ...BASE_SPLIDE,
         perPage: 4,
         pagination: false,
-        breakpoints: { 1260: { perPage: 3, gap: 12, arrows: false, pagination: true }, 974: { perPage: 2 }, 768: { perPage: 1 } },
+        breakpoints: {
+          1260: { perPage: 3, gap: 12, arrows: false, pagination: true },
+          974: { perPage: 2 },
+          768: { perPage: 2 },
+          576: { perPage: 1 },
+        },
       },
     ],
     [
@@ -148,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ...BASE_SPLIDE,
         perPage: 3,
         pagination: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 2 }, 576: { perPage: 1 } },
       },
     ],
     [
@@ -157,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ...BASE_SPLIDE,
         perPage: 3,
         pagination: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 2 }, 576: { perPage: 1 } },
       },
     ],
     [
@@ -166,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ...BASE_SPLIDE,
         perPage: 3,
         pagination: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 1 } },
+        breakpoints: { 1260: { perPage: 2, gap: 12, arrows: false, pagination: true }, 768: { perPage: 2 }, 576: { perPage: 1 } },
       },
     ],
     [
