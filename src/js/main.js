@@ -106,8 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
         perPage: 3,
         arrows: false,
         rewind: false,
-        drag: false,
-        breakpoints: { 1260: { perPage: 2, gap: 12, drag: true }, 768: { perPage: 2 }, 576: { perPage: 1 } },
+        // drag: false,
+        breakpoints: { 1260: { perPage: 2, gap: 12 }, 768: { perPage: 2 }, 576: { perPage: 1 } },
       },
     ],
     [
